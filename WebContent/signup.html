@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Sign up </title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="signup">
+        <form id="signup-form" class="signup-inputs" method="post" action="Validation"> 
+			<div class="choose-identity">
+				<div class="logo-container">
+					<img src="assets/logo.png">
+				</div>
+				<!-- <h1 class="h1-signup">Signup</h1> -->
+				<blockquote id="add-content"></blockquote>
+				<label class="label-identity" for="type">Choose Your Identity</label><br>
+					<div class="radio-one">
+						<input class="input-type" id="industry" name="userType" type="radio" value="industry"/>Industry
+		 				<input class="input-type" id="dealer" name ="userType" type="radio" value="dealer"/>Dealer
+					</div>
+				<div class="decorator"><img src="assets/decorator1.png"></div>
+			</div>
+            <div class="side-image">
+            	<img src="assets/trashcan1.jpg" />
+            </div>       
+            <div class="input-wrapper"> 
+
+	            <h3 id="selectedIdentity"></h3>
+	            
+	            <div class="serviceName">
+					<label id="label-name" class="name" for="name">Name :</label>
+					<input id="name" class="input-name" name="name" placeholder="Name" type="text" required/>
+				</div>
+	                    
+	            <div class="two-inputs names">
+	                <span>
+						<label class="firstName" for="firstName">First Name :</label>
+						<input id="firstName" class="input-firstName" name="firstName" placeholder="eg. Abhishek" type="text" required/>
+					</span>	
+					<span>	               
+				        <label class="lastName" for="lastName">Last Name :</label>
+				        <input id="lastName" class="input-lastName" name="lastName" placeholder="eg. Choure" type="text" required/>
+		            </span>	
+				</div> 
+				
+				
+				
+
+				<div>
+					<label class="email" for="email">Email :</label><br>
+					<input id="email" class="input-email" name="email" placeholder="eg. abc@example.com" required type="email" /><br>
+				</div>
+		       
+	            <div>
+					<label class="address" for="street">Address (Street/Area) :</label><br>
+					<input id="address" class="input-address" name="address" placeholder="eg. Tilak rd / Pune Camp " required type="text" /><br>       
+				</div>     
+	        
+				<div class="two-inputs">
+	                <span>
+						<label class="pincode" for="pincode">Pincode :</label>
+	        			<input id="pincode" class="input-pincode" name="pincode" placeholder="eg. 411041" required type="text" />
+					</span>	
+					<span>	               
+						<label class="city" for="city">City :</label>
+						<select class="input-city" name="city" required>
+							<option value="Pune">Pune</option>
+						</select>
+		            </span>	
+				</div> 
+					  
+				<div>
+					<label class="contact" for="contact">Contact No :</label><br>
+					<input id="contact" class="input-contact" name="contact" placeholder="Mobile no" required type="text" />
+				</div>
+				
+				<div>
+					<label class="password" for="password">Password :</label></br>
+	           		<input id="password" class="input-password" name="password" placeholder="Password" required type="password"><br>   
+				</div>
+				
+				<div>
+					<label class="password" for="password">Confirm Password :</label></br>
+	           		<input id="confirm-password" class="input-confirm-password" name="confirm-password" placeholder="Reenter Password" required type="password"><br>   
+				</div>
+				
+				<!-- <div>
+					<label class="security-question" for="question">Security Question :</label></br>
+	           		<select class="input-question" name="question" required>
+							<option value="What is your childhood name">What is your childhood name ?</option>
+							<option value="What is name of your grandfather ?">What is name of your grandfather ?</option>
+							<option value="Which sport do you like ?">Which sport do you like ?</option>
+					</select><br>   
+				</div>
+	            <div>
+					<label class="answer" for="answer">Security Answer :</label><br>
+					<input id="answer" class="input-answer" name="answer" placeholder="Security Answer" required type="text" /><br>
+				</div> -->
+	            <button class="btn-signup btn-primary" type="submit">Signup</button>
+            </div>
+            <!--  <div class="forgot-password"><a href="#">Forgot Password?</a></div>  -->             
+        </form>
+    </div>
+    <script>
+    	let selectedUserType;
+    	
+	    const industryRadioBtn = document.getElementById("industry");
+	    const dealerRadioBtn = document.getElementById("dealer");
+	    const inputs = document.querySelector(".input-wrapper");
+	    const selectedIdentity = document.getElementById("selectedIdentity");
+	    const nameLabel = document.getElementById("label-name");
+	    const identity = document.querySelector(".choose-identity");
+	    const content = document.getElementById("add-content");
+	
+	    industryRadioBtn.addEventListener("click",()=>{
+	        selectedUserType = "industry";
+	        inputs.style.display = "flex";
+	        selectedIdentity.innerHTML = "<span class='signup-industry-logo'><img src='assets/industry-solid.svg'></span>Industry Details :";
+	        nameLabel.innerText = "Industry Name :";
+	       /*  identity.style.backgroundColor = "#005d9b"; */
+	        identity.style.color = "white"; 
+	       	content.innerHTML = "\"The Earth is fine place and worth fighting for.\"<br><br><div class='smalltext'>-Ernest Hemingway</div>";
+	    })
+	
+	    dealerRadioBtn.addEventListener("click",()=>{
+	        selectedUserType = "dealer";
+	        inputs.style.display = "flex";
+	        selectedIdentity.innerHTML="<span class='signup-dealer-logo'><img src='assets/truck-solid.svg'></span>Dealer Details :";
+	        nameLabel.innerText = "Service Name :";
+	        /* identity.style.backgroundColor = "#005d9b"; */
+	        identity.style.color = "white";
+	    	content.innerHTML = "\"The Earth is fine place and worth fighting for.\"<br><br><div class='smalltext'>-Ernest Hemingway</div>";
+	    })
+	    
+	    const serviceName = document.getElementById("name");
+	    const firstName = document.getElementById("firstName");
+		const lastName = document.getElementById("lastName");
+	    const email = document.getElementById("email");
+	    const address = document.getElementById("address");
+	    const contact = document.getElementById("contact");
+	    const pincode = document.getElementById("pincode");
+	    const password = document.getElementById("password");
+	    const signupForm = document.getElementById("signup-form");
+		const confirmPassword = document.getElementById("confirm-password");
+	    
+	    signupForm.addEventListener('submit',(e)=>{    	
+	    	let errorMessages = [];
+	    	let regex = /^[a-zA-Z]+$/;
+	    	
+	    	
+	    	if(!regex.test(firstName.value)){
+		    		errorMessages.push("First Name is Invalid!");
+		    }
+
+			if(!regex.test(lastName.value)){
+		    		errorMessages.push("Last Name is Invalid!");
+		    }
+	    	
+	    	
+	    	
+	    	regex = /^[a-zA-Z\s-\.]+$/;
+	    	if(!regex.test(serviceName.value.trim())){
+		    		errorMessages.push("Service Name is Invalid!");
+		    }
+
+	  
+			let emailregex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+	    	
+			if(!emailregex.test(email.value)){
+				errorMessages.push("Email is Invalid!");
+			}
+
+			let contactregex = /[0-9]{10}/;
+
+			if(!contactregex.test(contact.value)){
+				errorMessages.push("Mobile number is Invalid!");
+			}
+
+			let pincoderegex = /\d{6}/;
+
+			if(!pincoderegex.test(pincode.value)){
+				errorMessages.push("Pincode is Invalid!");
+			}
+	    	
+			if(password.value.length < 6 || password.value.length > 30){
+				errorMessages.push("Password must be from min 6 to max 30 characters in length!");
+			}
+
+			if(password.value === 'password'){
+				errorMessages.push("Password cannot be 'password'! ");
+			}
+
+			if(password.value != confirmPassword.value){
+				errorMessages.push("Password mismatch! Please enter the same password to confirm");
+			}
+			
+	    	if(errorMessages.length > 0){
+	    		e.preventDefault();
+	    		for(let i=0;i<errorMessages.length;i++){
+	    			alert(errorMessages[i]);
+	    		}
+	    	}
+	    })
+    </script>
+</body>
+</html>

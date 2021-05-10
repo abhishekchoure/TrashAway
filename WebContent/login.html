@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login to TrashAway</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="login">
+		<form class="form-login" method="POST" action="LoginValidation">
+			<div>
+				<h3>Login :</h3>
+			</div><br>
+			<div>
+				<label class="label-username" for="username">Email Id :</label>
+				<input id="input-emailId" name="emailId" type="email" placeholder="abc@example.com" required /> 
+			</div>
+			<div>
+				<label class="label-password" for="password">Password :</label>
+				<input id="input-password" name="password" type="password" placeholder="Password" required /> 
+				<p>Forgot Password ?<a href="passwordRecovery.jsp"> Click here</a></p>
+			</div>
+			<br>
+			<input class="btn-login btn-primary" type="submit" value="Login" />
+			
+			<p class="para-signup">Don't have an account yet? <a href="signup.html">Signup</a></p>
+		</form>
+		<div class="side-container">
+			<img class="login-sideimg" src="assets/plastic.jpg">
+		</div>
+	</div>
+</body>
+</html>
